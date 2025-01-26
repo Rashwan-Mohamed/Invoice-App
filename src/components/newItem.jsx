@@ -1,7 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DivInput from "./DivInput";
 
-export default function NewItem({ handleRemoveItem, id, editItem, state }) {
+export default function NewItem({
+  handleRemoveItem,
+  id,
+  editItem,
+  state,
+  items,
+}) {
   const [itemPro, setItemPro] = useState({
     id,
     name: "",
@@ -9,7 +15,22 @@ export default function NewItem({ handleRemoveItem, id, editItem, state }) {
     price: 0,
     total: 0,
   });
-
+  useEffect(() => {
+    let soItems = [];
+    soItems = items.map((item) => {
+      if (item.id == id) {
+        return itemPro;
+      } else {
+        return item;
+      }
+    });
+    editItem(soItems);
+  }, [itemPro]);
+  const updateTotal = () => {
+    setItemPro((old) => {
+      return { ...old, total: old.price * old.quantity };
+    });
+  };
   return (
     <>
       <div className="wrapAlso">
@@ -37,18 +58,18 @@ export default function NewItem({ handleRemoveItem, id, editItem, state }) {
           text="Qty"
           test={(input) => {
             let res = Number(input);
-
             return typeof res === "number" && !isNaN(res);
           }}
           message={"input should be a number"}
-          setInput={(erer) =>
+          setInput={(erer) => {
             setItemPro((old) => {
               return {
                 ...old,
                 quantity: erer,
               };
-            })
-          }
+            });
+            updateTotal();
+          }}
           value={itemPro.quantity}
         />
         <DivInput
@@ -56,14 +77,15 @@ export default function NewItem({ handleRemoveItem, id, editItem, state }) {
           type="text"
           name="Price"
           text="Price"
-          setInput={(erer) =>
+          setInput={(erer) => {
             setItemPro((old) => {
               return {
                 ...old,
                 price: erer,
               };
-            })
-          }
+            });
+            updateTotal();
+          }}
           value={itemPro.price}
           test={(input) => {
             let res = Number(input);
@@ -74,7 +96,7 @@ export default function NewItem({ handleRemoveItem, id, editItem, state }) {
         />
         <div className="total">
           <label htmlFor="">Total</label>
-          <p> {itemPro.price * itemPro.quantity} </p>
+          <p> {itemPro.total} </p>
         </div>
         <button onClick={() => handleRemoveItem(id)}>
           <img src="images/icon-delete.svg" alt="" />

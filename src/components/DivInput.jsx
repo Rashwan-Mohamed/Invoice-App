@@ -5,7 +5,6 @@ export default function DivInput({
   text,
   type,
   name,
-  value,
   setInput,
   test,
   message,
@@ -31,7 +30,6 @@ export default function DivInput({
   };
   useEffect(() => {
     if (stop) {
-      console.log("stop");
       onBlurLeave();
     }
   }, [stop]);

@@ -39,17 +39,14 @@ function NewInvoice({ setShowInvoice }) {
 
   function handleSubmit(event) {
     event.preventDefault();
+    calCulateTotal();
     if (input.createdAt) {
       let due = addDaystoDate(input.createdAt, input.paymentTerms);
       setInput((old) => {
         return { ...old, paymentDue: due };
       });
     }
-    console.log(calCulateTotal());
 
-    setInput((old) => {
-      return { ...old, total: calCulateTotal() };
-    });
     let problems = new Set();
     for (let outer in input) {
       if (outer == "items") {
@@ -96,9 +93,9 @@ function NewInvoice({ setShowInvoice }) {
     if (problems.size > 0) {
       setErrors([...problems]);
     }
-
-    console.log(input);
-
+    if (problems.size == 0) {
+      setErrors([]);
+    }
     problems.clear();
   }
   function handleRemoveItem(id) {
@@ -115,7 +112,7 @@ function NewInvoice({ setShowInvoice }) {
         items: [
           ...oldI.items,
           {
-            id: Math.ceil(Math.random() * 10),
+            id: uuidv4(),
             name: "",
             quantity: 0,
             price: 0,
@@ -130,7 +127,14 @@ function NewInvoice({ setShowInvoice }) {
     input.items.forEach((item) => {
       total += item.total;
     });
-    return total;
+    setInput((old) => {
+      return { ...old, total };
+    });
+  }
+  function handleEditItems(arrayOfItems) {
+    setInput((old) => {
+      return { ...old, items: arrayOfItems };
+    });
   }
   useEffect(() => {
     const handleClick = (event) => {
@@ -160,7 +164,8 @@ function NewInvoice({ setShowInvoice }) {
                   handleRemoveItem={handleRemoveItem}
                   id={it.id}
                   key={it.id}
-                  editItem={setInput}
+                  editItem={handleEditItems}
+                  items={input.items}
                   state={it.name}
                 />
               );
