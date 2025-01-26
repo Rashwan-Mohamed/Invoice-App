@@ -1,0 +1,615 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-family: "League Spartan", serif;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+body {
+  font-family: "League Spartan", serif;
+  background-color: rgb(20, 22, 37);
+  color: white;
+}
+img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+input {
+  outline: none;
+  background: transparent;
+  border: none;
+  font-family: "League Spartan", serif;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+}
+aside {
+  background-color: rgb(30, 33, 57);
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 105px;
+  border-radius: 0 15px 15px 0;
+  display: grid;
+  grid-template-rows: 1fr 0.15fr;
+}
+.logoWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  background-color: rgb(124, 93, 250);
+  border-radius: 0 15px 15px 0;
+  position: relative;
+}
+.logoWrapper img {
+  position: relative;
+  width: 40px;
+  height: 37px;
+  z-index: 1;
+}
+.logoWrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50%;
+  background-color: rgb(146, 119, 255);
+  border-radius: 15px 0 15px 0;
+}
+.mine img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.asidesa {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.mine {
+  border-top: 1px solid grey;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainHeader {
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  gap: 0 200px;
+  align-items: center;
+  width: fit-content;
+}
+body {
+  height: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+.mainHeader h3 {
+  font-size: 40px;
+}
+
+.leftNovices p {
+  color: rgb(161, 166, 193);
+}
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  gap: 0 15px;
+  gap: 0 35px;
+}
+
+.btns button {
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 16px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0 10px;
+}
+.newInvoive {
+  background-color: rgb(124, 93, 250);
+  padding: 7px;
+  border-radius: 40px;
+  font-weight: 600;
+  font-size: 15px;
+}
+.newInvoive > span:nth-child(1) {
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  text-align: center;
+}
+.newInvoive > span:nth-child(1) > svg:nth-child(1) {
+  width: 10px;
+  height: 10px;
+}
+
+.newInvoive {
+  padding: 7px 10px 7px 7px;
+}
+
+.btns button {
+  font-size: 15px;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.novo {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  gap: 0 30px;
+  justify-content: space-between;
+  cursor: pointer;
+  background: rgb(30, 33, 57);
+  padding: 20px;
+  border-radius: 10px;
+  padding: 25px 20px;
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  border: 1px solid rgb(30, 33, 57);
+  transition: all 0.3s ease-in-out;
+}
+.novo:hover {
+  border-color: rgb(124, 93, 250);
+}
+.wrapper {
+  width: 660px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px 0;
+}
+
+.mainHeader {
+  width: 100%;
+}
+.listNov {
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0;
+}
+
+.paraID > span:nth-child(1) {
+  color: rgb(126, 136, 195);
+}
+
+.paraID {
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.createdAt {
+  color: rgb(223, 227, 250);
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.clienName {
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  text-align: initial;
+}
+
+.OuSpan {
+  background: rgba(51, 214, 159, 0.06);
+  padding: 10px 35px;
+  text-transform: capitalize;
+  display: flex;
+  justify-content: center;
+  align-items: first baseline;
+  text-align: center;
+  gap: 0 10px;
+  color: rgb(51, 214, 159);
+  border-radius: 6px;
+}
+
+.novo {
+  padding: 15px 20px;
+}
+
+.InSpan {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  color: rgb(51, 214, 159);
+  display: block;
+  background: rgb(51, 214, 159);
+}
+.pending {
+  color: rgb(255, 143, 0);
+  background: rgba(255, 143, 0, 0.06);
+}
+.pending .InSpan {
+  color: rgb(255, 143, 0);
+  background: rgba(255, 143, 0);
+}
+
+.draft {
+  background: rgba(223, 227, 250, 0.06);
+  color: rgb(223, 227, 250);
+}
+.draft .InSpan {
+  color: rgb(223, 227, 250);
+  background: rgba(223, 227, 250);
+}
+
+.novo {
+  grid-template-columns: auto auto 1fr 0.5fr 90px auto;
+  gap: 0 15px;
+}
+
+.OuSpan {
+  padding: 10px 10px;
+}
+.newInvoive {
+  transition: background 0.15s ease-in-out;
+}
+.newInvoive:hover {
+  background-color: rgb(146, 119, 255);
+}
+
+/* Element | http://localhost:5173/ */
+
+.filterStatus {
+  position: relative;
+}
+
+.dropMenu {
+  position: absolute;
+  bottom: -120px;
+  background: rgb(37, 41, 69);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.dropMenu > ul:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: flex-start;
+  width: 130px;
+}
+
+/* Element | http://localhost:5173/ */
+
+.dropMenu .box {
+  width: 15px;
+  height: 15px;
+  background: rgb(30, 33, 57);
+  border-radius: 2px;
+  transition: border ease-in-out 0.1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropMenu > ul:nth-child(1) > li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0 15px;
+  width: 100%;
+  cursor: pointer;
+}
+.dropMenu > ul:nth-child(1) > li:hover .box {
+  border: 1px solid rgb(124, 93, 250);
+}
+.btnsWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dropMenu .chosenState {
+  background-color: rgb(124, 93, 250);
+}
+.filterStatus > span {
+  transition: all ease-in-out 0.2s;
+}
+.translate {
+  transform: rotate(180deg);
+}
+.NewInvoiceAdd {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 105px;
+  background: rgb(20, 22, 37);
+  padding: 2rem 3rem;
+  /* height: 100vh; */
+  padding: 3rem 3rem 1rem 3rem;
+  width: 640px;
+}
+.NewInvoiceAdd > h3:nth-child(1) {
+  font-size: 30px;
+  text-transform: capitalize;
+  margin-bottom: 4.5rem;
+}
+
+.mainForm > section > p {
+  text-transform: capitalize;
+  color: rgb(124, 93, 250);
+  font-weight: 500;
+  font-size: 15px;
+  margin-bottom: 1rem;
+}
+
+.mainForm input {
+  width: 100%;
+  background: rgb(30, 33, 57);
+  padding: 1rem 1.25rem;
+  border-radius: 5px;
+  border: 1px solid rgb(37, 41, 69);
+  transition: all 0.3s ease-in-out;
+}
+.mainForm > section > div,
+.threeDivs div,
+.pickDate,
+.dropDown {
+  display: flex;
+  gap: 8px 0;
+  flex-direction: column;
+  position: relative;
+}
+.mainForm input:focus {
+  border: 1px solid rgb(124, 93, 250);
+}
+.mainForm label {
+  color: white;
+  font-size: 14px;
+  color: rgb(223, 227, 250);
+  transition: all 0.3s ease-in-out;
+}
+.billFrom {
+  display: grid;
+  grid-template-rows: auto 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px 20px;
+  margin-bottom: 30px;
+}
+.billFrom > p:nth-child(1) {
+  grid-column: 1/-1;
+}
+div.StreetAddress:nth-child(2) {
+  grid-column: 1/-1;
+}
+.billTo {
+  display: flex;
+  flex-direction: column;
+  gap: 15px 0;
+}
+.threeDivs {
+  display: flex;
+  flex-direction: row !important;
+  gap: 0 15px !important;
+}
+
+.billTo > article {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 30px;
+}
+
+.dropDown {
+  height: 100%;
+}
+#drop {
+  outline: none;
+  border: none;
+  width: 100%;
+  appearance: none;
+  background: rgb(30, 33, 57);
+  padding: 1rem 1.25rem;
+  border-radius: 5px;
+  border: 1px solid rgb(37, 41, 69);
+  transition: all 0.3s ease-in-out;
+  font-family: "League Spartan", serif;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+#drop > option {
+  font-family: "Spartan", sans-serif;
+}
+
+/* Inline #3 | http://localhost:5173/ */
+
+.billTo {
+  margin-bottom: 30px;
+}
+
+.itemList .paero {
+  color: grey;
+  font-size: 25px;
+  color: rgb(119, 127, 152);
+}
+
+.addNewItem {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: first baseline;
+  gap: 0 10px;
+  background: rgb(37, 41, 69);
+  padding: 15px 10px;
+  border-radius: 25px;
+  text-transform: uppercase;
+  text-align: center;
+  color: rgb(223, 227, 250);
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease-in-out;
+}
+.addNewItem:hover {
+  background: rgb(30, 33, 57);
+}
+.mainForm > section .wrapAlso {
+  display: grid;
+  grid-template-columns: 1.75fr 0.75fr 1fr 0.5fr auto;
+  gap: 0 15px;
+  margin-bottom: 2rem;
+}
+.mainForm > section .wrapAlso > button:nth-child(5) {
+  padding: 10px 15px;
+}
+.mainForm > section .wrapAlso > div {
+  display: flex;
+  gap: 8px 0;
+  flex-direction: column;
+}
+.itemList {
+  margin-bottom: 1rem;
+}
+
+.mainForm {
+  overflow-y: scroll;
+}
+.Rashwan {
+  overflow: hidden;
+}
+
+.NewInvoiceAdd {
+  height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainForm {
+  height: fit-content;
+  height: auto;
+}
+
+.wrapperNoSee {
+  width: 100%;
+  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  opacity: 0.5;
+  position: fixed;
+  background-color: black;
+  z-index: 100;
+}
+
+.NewInvoiceAdd {
+  z-index: 150;
+}
+.formControl {
+  display: grid;
+  grid-template-columns: 1.75fr 1fr 1fr;
+  padding-bottom: 1rem;
+  padding-top: 2rem;
+}
+.formControl button {
+  padding: 15px 19px;
+  color: rgb(223, 227, 250);
+  background: rgb(37, 41, 69);
+  border-radius: 25px;
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 15px;
+  transition: all 0.2s ease-in-out;
+}
+.discard {
+  place-self: flex-start;
+}
+.discard:hover {
+  color: black;
+  background-color: white;
+}
+.saveDraft {
+  background-color: rgb(54, 59, 83);
+  margin-right: 10px;
+}
+.saveDraft:hover {
+  background-color: rgb(30, 33, 57);
+  color: white;
+}
+.formControl .saveSend {
+  background-color: rgb(124, 93, 250);
+}
+.saveSend:hover {
+  background-color: rgb(146, 119, 255);
+  color: white;
+}
+
+.StreetAddress {
+  position: relative;
+}
+
+.required input {
+  border: 1px solid rgb(236, 87, 87);
+}
+
+div.required > label:nth-child(1) {
+  color: rgb(236, 87, 87);
+}
+
+.requiredDivo {
+  text-transform: capitalize;
+  font-size: 12px;
+  color: rgb(236, 87, 87);
+  font-weight: 600;
+  color: white;
+  position: absolute !important;
+  bottom: -20px;
+  right: 10px;
+}
+
+.formControl {
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.whatWrong {
+  grid-column: 1/-1;
+  margin-bottom: 5px;
+}
+.whatWrong > p {
+  text-transform: capitalize;
+  color: rgb(236, 87, 87);
+  font-weight: 500;
+  }
