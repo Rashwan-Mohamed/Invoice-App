@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import NewItem from "./newItem";
 import { v4 as uuidv4 } from "uuid";
-import DivInput from "./DivInput";
 import BillingSection from "./BillingSection";
+import { mainContextUse } from "../context";
+
 const initialState = {
-  id: uuidv4(),
+  id: uuidv4().slice(0, 4).toUpperCase(),
   createdAt: "",
   paymentDue: "",
   senderAddress: {
@@ -36,7 +37,7 @@ function NewInvoice({ setShowInvoice }) {
   const wrapper = useRef(null);
   const [input, setInput] = useState(initialState);
   const [errors, setErrors] = useState([]);
-
+  const { handleAddInvoice } = mainContextUse();
   function handleSubmit(event) {
     event.preventDefault();
     calCulateTotal();
@@ -95,9 +96,12 @@ function NewInvoice({ setShowInvoice }) {
     }
     if (problems.size == 0) {
       setErrors([]);
+      handleAddInvoice(input);
+      setShowInvoice(false);
     }
     problems.clear();
   }
+
   function handleRemoveItem(id) {
     setInput((oldNput) => {
       let newItems = oldNput.items.filter((item) => item.id !== id);
@@ -135,6 +139,10 @@ function NewInvoice({ setShowInvoice }) {
     setInput((old) => {
       return { ...old, items: arrayOfItems };
     });
+  }
+  function draftSave(obj) {
+    handleAddInvoice(obj);
+    setShowInvoice(false);
   }
   useEffect(() => {
     const handleClick = (event) => {
@@ -192,7 +200,18 @@ function NewInvoice({ setShowInvoice }) {
           <button onClick={() => setShowInvoice(false)} className="discard">
             discard
           </button>
-          <button className="saveDraft"> save as draft</button>
+          <button
+            onClick={() => {
+              setInput((old) => {
+                return { ...old, status: "draft", createdAt: new Date() };
+              });
+              draftSave({ ...input, status: "draft", createdAt: new Date() });
+            }}
+            className="saveDraft"
+          >
+            {" "}
+            save as draft
+          </button>
           <button onClick={handleSubmit} className="saveSend">
             {" "}
             save and send

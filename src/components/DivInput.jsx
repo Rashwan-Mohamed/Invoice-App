@@ -9,9 +9,10 @@ export default function DivInput({
   test,
   message,
   stop,
+  value,
 }) {
   const [warning, setWarning] = useState("");
-  const [localValue, setlocalValue] = useState("");
+  const [localValue, setlocalValue] = useState(value !== "empty" && value);
   const [letter, setletter] = useState("input is required");
   const onBlurLeave = () => {
     if (!localValue) {

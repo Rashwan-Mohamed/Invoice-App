@@ -1,35 +1,22 @@
 import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import { mainContextUse } from "../context";
+import { Navigate, useNavigate } from "react-router";
+import { formatDate, formatMoney } from "../util";
 
 export default function Home() {
-  const formatDate = (date) => {
-    const fDate = new Date(date);
-    return fDate.toLocaleDateString("en-GB", {
-      day: "numeric",
-      month: "short",
-      year: "numeric",
-    });
-  };
-
-  const formatMoney = (amount) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "GBP",
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    }).format(amount);
-  };
-  const { invoices: data } = mainContextUse();
-  const [invoices, setInvoices] = useState(data);
+  const { invoices } = mainContextUse();
+  const [localInvoices, setLocalInvoices] = useState(invoices);
   const [criteria, setCriteria] = useState("");
+  const navigate = useNavigate();
   useEffect(() => {
     if (criteria !== "") {
-      setInvoices(data.filter((ele) => ele.status == criteria));
+      setLocalInvoices(invoices.filter((ele) => ele.status == criteria));
     } else {
-      setInvoices(data);
+      setLocalInvoices(invoices);
     }
-  }, [criteria]);
+  }, [criteria, invoices]);
+
   return (
     <>
       <Header
@@ -39,10 +26,16 @@ export default function Home() {
       ></Header>
       <main>
         <ul className="listNov">
-          {invoices.map((inv) => {
+          {localInvoices.map((inv) => {
             const { id, createdAt, clientName, total, status } = inv;
             return (
-              <li className="novo" key={id}>
+              <li
+                onClick={() => {
+                  navigate(id);
+                }}
+                className="novo"
+                key={id}
+              >
                 <p className="paraID">
                   {" "}
                   <span>#</span>

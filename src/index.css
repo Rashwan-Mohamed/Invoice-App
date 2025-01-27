@@ -612,4 +612,210 @@ div.required > label:nth-child(1) {
   text-transform: capitalize;
   color: rgb(236, 87, 87);
   font-weight: 500;
-  }
+}
+.wrapper {
+  width: 708px;
+}
+
+.viewInvoice {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.backGoo {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.artFie {
+  margin-bottom: 2rem;
+  background-color: rgb(30, 33, 57);
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: rgba(72, 84, 159, 0.1) 0px 10px 10px -10px;
+}
+
+.backGoo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0 10px;
+  justify-content: start;
+  align-items: first baseline;
+  font-size: 15px;
+  transition: color 0.3s ease-in-out;
+  width: fit-content;
+}
+.backGoo:hover {
+  color: rgb(136, 142, 176);
+}
+.bIcong {
+  transition: transform 0.3s ease-in-out;
+}
+.backGoo:hover .bIcong {
+  transform: translateX(-10px);
+}
+.firstTickle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.leftSer {
+  display: flex;
+  align-items: center;
+  gap: 0 15px;
+}
+.rightSer {
+  display: flex;
+  align-items: center;
+  gap: 0 15px;
+}
+.rightSer button {
+  padding: 15px 19px;
+  color: rgb(223, 227, 250);
+  background: rgb(37, 41, 69);
+  border-radius: 25px;
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+  padding: 15px 20px;
+}
+
+.rightSer {
+  justify-content: flex-end;
+}
+
+.rightSer .rgDelete {
+  background: rgb(236, 87, 87);
+}
+.rgEdit:hover {
+  color: rgba(0, 0, 0, 0.651);
+  background: white;
+}
+.rightSer .rgDelete {
+  padding: 14px 22px;
+}
+.rgDelete:hover {
+  background: rgb(255, 151, 151);
+  color: white;
+}
+
+.leftSer > label:nth-child(1) {
+  text-transform: capitalize;
+  color: rgb(223, 227, 250);
+  font-size: 14px;
+}
+
+.Noses {
+  padding: 10px 20px;
+}
+.artFie {
+  padding: 20px 15px;
+}
+
+.rightUpper {
+  grid-row: 1;
+  grid-column: 1/2;
+}
+
+.secondTickle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.address {
+  align-self: flex-end;
+  justify-self: flex-end;
+}
+
+.midArticle {
+  grid-column: 1/-1;
+  grid-row: 2/3;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.articleFooter {
+  grid-column: 1/-1;
+  grid-row: 3/4;
+  background: rgb(37, 41, 69);
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 10px;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.summaryl {
+  background: black;
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  align-items: center;
+  padding: 1.5rem;
+  border-radius: 0 0 10px 10px;
+  width: 100%;
+}
+
+.tableLike {
+  padding: 1rem;
+}
+
+.itemViewDis {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: grid;
+}
+.tableLike > ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.itemViewDis {
+  grid-column: 1/-1;
+}
+.rightUpper {
+  display: flex;
+  flex-direction: column;
+}
+.NowIdF {
+  font-size: 18px;
+  font-weight: 600;
+}
+.textNext {
+  color: rgb(223, 227, 250);
+  font-size: 15px;
+  line-height: 1.125;
+  letter-spacing: -0.25px;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+.articleFooter {
+  margin-top: 3rem;
+}
+.address {
+  text-align: right;
+  line-height: 1.25;
+}
+.secondTickle {
+  gap: 15px 0;
+}
+.rightUpper {
+  gap: 5px 0;
+}
+.midArticle > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px 0;
+}
+.midArticle > div > h4 {
+  font-size: 19px;
+}
+
+.ceTer {
+  line-height: 1.35;
+}
+
+.ceTer > h4:nth-child(1) {
+  font-size: 18px;
+}
