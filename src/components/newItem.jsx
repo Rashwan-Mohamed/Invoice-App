@@ -7,14 +7,17 @@ export default function NewItem({
   editItem,
   state,
   items,
+  edit,
+  singleItem,
 }) {
-  const [itemPro, setItemPro] = useState({
+  const initialItem = {
     id,
     name: "",
     quantity: 0,
     price: 0,
     total: 0,
-  });
+  };
+  const [itemPro, setItemPro] = useState(edit ? singleItem : initialItem);
   useEffect(() => {
     let soItems = [];
     soItems = items.map((item) => {

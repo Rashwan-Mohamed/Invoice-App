@@ -15,3 +15,5 @@ export const formatMoney = (amount) => {
     maximumFractionDigits: 2,
   }).format(amount);
 };
+
+ 

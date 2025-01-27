@@ -819,3 +819,89 @@ div.required > label:nth-child(1) {
 .ceTer > h4:nth-child(1) {
   font-size: 18px;
 }
+
+.tableLike > ul {
+  gap: 25px 0;
+}
+
+.tableLike {
+  margin-bottom: 0.5rem;
+}
+.summaryl > p {
+  text-transform: capitalize;
+}
+.summaryl > h3 {
+  font-size: 25px;
+}
+
+.SomeWhereElse {
+  font-size: 30px;
+}
+.rightSer .PaidAs {
+  background: rgb(124, 93, 250);
+}
+.rightSer .PaidAs:hover {
+  background: rgb(146, 119, 255);
+}
+.controlRod {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0 15px;
+}
+
+.controlRod .discard {
+  grid-column: 2/-3;
+}
+
+.deleteWrapper {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  z-index: 11300;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.deleteWrapper > section:nth-child(1) {
+  background: rgb(30, 33, 57);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0;
+  border-radius: 10px;
+  width: 500px;
+}
+
+.deleteWrapper > section > h2 {
+  font-size: 30px;
+}
+
+.btnsDelete {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0 15px;
+}
+
+.btnsDelete button {
+  padding: 15px 19px;
+  color: rgb(223, 227, 250);
+  background: rgb(37, 41, 69);
+  background-color: rgb(37, 41, 69);
+  border-radius: 25px;
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 15px;
+  transition: all 0.2s ease-in-out;
+}
+.btnsDelete button:nth-child(2) {
+  background: rgb(236, 87, 87);
+}
+.btnsDelete button:nth-child(2):hover {
+  background: rgb(255, 151, 151);
+}

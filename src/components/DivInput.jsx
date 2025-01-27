@@ -18,9 +18,11 @@ export default function DivInput({
     if (!localValue) {
       setWarning("required");
       setletter("input is required");
+      setInput("empty");
     } else if (test && !test(localValue)) {
       setWarning("required");
       setletter(message);
+      setInput("empty");
     } else {
       setInput(localValue);
       setWarning("");

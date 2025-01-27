@@ -31,6 +31,9 @@ export default function AppContext({ children }) {
   const handleDeleteInvoice = (id) => {
     dispatch({ type: "remove", payload: { id } });
   };
+  const handleMarkAsPaid = (id) => {
+    dispatch({ type: "mkap", payload: { id } });
+  };
   return (
     <mainContext.Provider
       value={{
@@ -41,6 +44,7 @@ export default function AppContext({ children }) {
         handleAddInvoice,
         handleEditInvoice,
         handleDeleteInvoice,
+        handleMarkAsPaid
       }}
     >
       {children}

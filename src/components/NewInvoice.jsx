@@ -33,11 +33,12 @@ function addDaystoDate(date, days) {
   newDate.setDate(newDate.getDate() + days);
   return newDate;
 }
-function NewInvoice({ setShowInvoice }) {
+function NewInvoice({ setShowInvoice, edit, editedItem }) {
   const wrapper = useRef(null);
-  const [input, setInput] = useState(initialState);
+  const [input, setInput] = useState(editedItem ?? initialState);
   const [errors, setErrors] = useState([]);
-  const { handleAddInvoice } = mainContextUse();
+
+  const { handleAddInvoice, handleEditInvoice } = mainContextUse();
   function handleSubmit(event) {
     event.preventDefault();
     calCulateTotal();
@@ -94,9 +95,17 @@ function NewInvoice({ setShowInvoice }) {
     if (problems.size > 0) {
       setErrors([...problems]);
     }
-    if (problems.size == 0) {
+    if (problems.size === 0) {
       setErrors([]);
-      handleAddInvoice(input);
+      if (edit) {
+        if (input.status === "draft") {
+          handleEditInvoice(input.id, { ...input, status: "pending" });
+        } else {
+          handleEditInvoice(input.id, input);
+        }
+      } else {
+        handleAddInvoice(input);
+      }
       setShowInvoice(false);
     }
     problems.clear();
@@ -160,21 +169,33 @@ function NewInvoice({ setShowInvoice }) {
     <>
       <div ref={wrapper} className="wrapperNoSee"></div>
       <section className="NewInvoiceAdd">
-        <h3>create invoice</h3>
+        <h3>
+          {edit ? (
+            <p className="paraID NowIdF  SomeWhereElse">
+              {" "}
+              edit
+              <span>#</span>
+              {input.id}
+            </p>
+          ) : (
+            "create invoice"
+          )}
+        </h3>
         <form onSubmit={handleSubmit} className="mainForm">
           <BillingSection input={input} setInput={setInput} />
-
           <section className="itemList">
             <p className="paero">Item List</p>
-            {input.items.map((it) => {
+            {input.items.map((it, index) => {
               return (
                 <NewItem
                   handleRemoveItem={handleRemoveItem}
-                  id={it.id}
-                  key={it.id}
+                  id={it.id ?? index}
+                  key={it.id ?? index}
                   editItem={handleEditItems}
                   items={input.items}
+                  singleItem={it}
                   state={it.name}
+                  edit={edit}
                 />
               );
             })}
@@ -191,31 +212,51 @@ function NewInvoice({ setShowInvoice }) {
             </button>
           </section>
         </form>
-        <div className="formControl">
+        <div className={edit ? "formControl controlRod" : "formControl"}>
           <div className="whatWrong">
             {errors.map((error) => {
               return <p key={error}>*{error}</p>;
             })}
           </div>
-          <button onClick={() => setShowInvoice(false)} className="discard">
-            discard
-          </button>
-          <button
-            onClick={() => {
-              setInput((old) => {
-                return { ...old, status: "draft", createdAt: new Date() };
-              });
-              draftSave({ ...input, status: "draft", createdAt: new Date() });
-            }}
-            className="saveDraft"
-          >
-            {" "}
-            save as draft
-          </button>
-          <button onClick={handleSubmit} className="saveSend">
-            {" "}
-            save and send
-          </button>
+
+          {edit ? (
+            <>
+              {" "}
+              <button onClick={() => setShowInvoice(false)} className="discard">
+                Cancel
+              </button>
+              <button onClick={handleSubmit} className="saveSend">
+                {" "}
+                save Changes
+              </button>
+            </>
+          ) : (
+            <>
+              <button onClick={() => setShowInvoice(false)} className="discard">
+                discard
+              </button>
+              <button
+                onClick={() => {
+                  setInput((old) => {
+                    return { ...old, status: "draft", createdAt: new Date() };
+                  });
+                  draftSave({
+                    ...input,
+                    status: "draft",
+                    createdAt: new Date(),
+                  });
+                }}
+                className="saveDraft"
+              >
+                {" "}
+                save as draft
+              </button>
+              <button onClick={handleSubmit} className="saveSend">
+                {" "}
+                save and send
+              </button>
+            </>
+          )}
         </div>
       </section>
     </>
