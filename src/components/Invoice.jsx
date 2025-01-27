@@ -5,7 +5,8 @@ import { formatDate, formatMoney } from "../util";
 import NewInvoice from "./NewInvoice";
 import DeleteDialog from "./DeleteDialog";
 export default function Invoice() {
-  const { invoices, handleMarkAsPaid, handleDeleteInvoice } = mainContextUse();
+  const { invoices, handleMarkAsPaid, handleDeleteInvoice, dark } =
+    mainContextUse();
   let params = useParams();
   const [mainVoince, setMainVoice] = useState(() => {
     let temp;
@@ -56,7 +57,13 @@ export default function Invoice() {
       return temp;
     });
   }, [params, invoices]);
-
+  useEffect(() => {
+    if (showInvoice) {
+      document.body.classList.add("Rashwan");
+    } else {
+      document.body.classList.remove("Rashwan");
+    }
+  }, [showInvoice]);
   return (
     <>
       {showInvoice && (
@@ -71,9 +78,10 @@ export default function Invoice() {
           id={id}
           handleDeleteInvoice={handleDeleteInvoice}
           setDeleteConfirm={setDeleteConfirm}
+          dark={dark}
         />
       )}
-      <section className="viewInvoice">
+      <section className={!dark ? "viewInvoice wviewInvoice" : "viewInvoice"}>
         <button onClick={() => nave("/")} className="backGoo">
           {" "}
           <span className="bIcong">

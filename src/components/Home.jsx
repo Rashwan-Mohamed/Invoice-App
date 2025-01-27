@@ -5,7 +5,7 @@ import { Navigate, useNavigate } from "react-router";
 import { formatDate, formatMoney } from "../util";
 
 export default function Home() {
-  const { invoices } = mainContextUse();
+  const { invoices, dark } = mainContextUse();
   const [localInvoices, setLocalInvoices] = useState(invoices);
   const [criteria, setCriteria] = useState("");
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ export default function Home() {
                 onClick={() => {
                   navigate(id);
                 }}
-                className="novo"
+                className={!dark ? "novo lightre" : "novo"}
                 key={id}
               >
                 <p className="paraID">

@@ -1,11 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
 import NewInvoice from "./NewInvoice";
+import { mainContextUse } from "../context";
 
 export default function Header({ criteria, setCriteria, number }) {
   const [show, setShow] = useState(false);
   const compoenentRef = useRef(null);
   const openRef = useRef(null);
   const [showInvoice, setShowInvoice] = useState(false);
+  const { dark } = mainContextUse();
 
   function handleCriteria(status) {
     setCriteria(status);
@@ -30,6 +32,7 @@ export default function Header({ criteria, setCriteria, number }) {
       document.body.classList.remove("Rashwan");
     }
   }, [showInvoice]);
+
   const status = ["paid", "pending", "draft"];
   return (
     <>
@@ -44,7 +47,7 @@ export default function Header({ criteria, setCriteria, number }) {
             <button
               ref={openRef}
               onClick={() => setShow(!show)}
-              className="filterStatus"
+              className={!dark ? "filterStatus wfilterStatus" : "filterStatus"}
             >
               filter by status{" "}
               <span className={show ? "translate" : ""}>
@@ -52,7 +55,10 @@ export default function Header({ criteria, setCriteria, number }) {
               </span>
             </button>
             {show && (
-              <div ref={compoenentRef} className="dropMenu">
+              <div
+                ref={compoenentRef}
+                className={!dark ? "dropMenu wdropMenu" : "dropMenu"}
+              >
                 <ul>
                   {status.map((stat) => {
                     return (

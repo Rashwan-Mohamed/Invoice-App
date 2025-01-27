@@ -5,10 +5,11 @@ export default function DeleteDialog({
   id,
   handleDeleteInvoice,
   setDeleteConfirm,
+  dark,
 }) {
   const nave = useNavigate();
   return (
-    <div className="deleteWrapper">
+    <div className={!dark ? "deleteWrapper wdeleteWrapper" : "deleteWrapper"}>
       <section>
         <h2>Confirm Deletion</h2>
         <p>

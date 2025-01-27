@@ -38,17 +38,12 @@ function NewInvoice({ setShowInvoice, edit, editedItem }) {
   const [input, setInput] = useState(editedItem ?? initialState);
   const [errors, setErrors] = useState([]);
 
-  const { handleAddInvoice, handleEditInvoice } = mainContextUse();
+  const { handleAddInvoice, handleEditInvoice, dark } = mainContextUse();
   function handleSubmit(event) {
     event.preventDefault();
-    calCulateTotal();
-    if (input.createdAt) {
-      let due = addDaystoDate(input.createdAt, input.paymentTerms);
-      setInput((old) => {
-        return { ...old, paymentDue: due };
-      });
-    }
-
+    let due = addDaystoDate(input.createdAt, input.paymentTerms);
+    let ttoral = calCulateTotal();
+    const updatedInput = { ...input, total: ttoral, paymentDue: due };
     let problems = new Set();
     for (let outer in input) {
       if (outer == "items") {
@@ -99,12 +94,19 @@ function NewInvoice({ setShowInvoice, edit, editedItem }) {
       setErrors([]);
       if (edit) {
         if (input.status === "draft") {
-          handleEditInvoice(input.id, { ...input, status: "pending" });
+          handleEditInvoice(input.id, {
+            ...updatedInput,
+            status: "pending",
+          });
         } else {
-          handleEditInvoice(input.id, input);
+          handleEditInvoice(input.id, {
+            ...updatedInput,
+          });
         }
       } else {
-        handleAddInvoice(input);
+        handleAddInvoice({
+          ...updatedInput,
+        });
       }
       setShowInvoice(false);
     }
@@ -140,9 +142,7 @@ function NewInvoice({ setShowInvoice, edit, editedItem }) {
     input.items.forEach((item) => {
       total += item.total;
     });
-    setInput((old) => {
-      return { ...old, total };
-    });
+    return total;
   }
   function handleEditItems(arrayOfItems) {
     setInput((old) => {
@@ -153,6 +153,7 @@ function NewInvoice({ setShowInvoice, edit, editedItem }) {
     handleAddInvoice(obj);
     setShowInvoice(false);
   }
+
   useEffect(() => {
     const handleClick = (event) => {
       if (wrapper.current && wrapper.current.contains(event.target)) {
@@ -168,7 +169,9 @@ function NewInvoice({ setShowInvoice, edit, editedItem }) {
   return (
     <>
       <div ref={wrapper} className="wrapperNoSee"></div>
-      <section className="NewInvoiceAdd">
+      <section
+        className={!dark ? "NewInvoiceAdd whiteNewInvoiceAdd" : "NewInvoiceAdd"}
+      >
         <h3>
           {edit ? (
             <p className="paraID NowIdF  SomeWhereElse">
@@ -181,7 +184,10 @@ function NewInvoice({ setShowInvoice, edit, editedItem }) {
             "create invoice"
           )}
         </h3>
-        <form onSubmit={handleSubmit} className="mainForm">
+        <form
+          onSubmit={handleSubmit}
+          className={!dark ? "mainForm wmainForm" : "mainForm"}
+        >
           <BillingSection input={input} setInput={setInput} />
           <section className="itemList">
             <p className="paero">Item List</p>

@@ -339,7 +339,7 @@ html {
   align-items: center;
 }
 .dropMenu .chosenState {
-  background-color: rgb(124, 93, 250);
+  background-color: rgb(124, 93, 250) !important;
 }
 .filterStatus > span {
   transition: all ease-in-out 0.2s;
@@ -507,7 +507,7 @@ div.StreetAddress:nth-child(2) {
   overflow-y: scroll;
 }
 .Rashwan {
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 .NewInvoiceAdd {
@@ -581,7 +581,7 @@ div.StreetAddress:nth-child(2) {
 }
 
 .required input {
-  border: 1px solid rgb(236, 87, 87);
+  border: 1px solid rgb(236, 87, 87) !important;
 }
 
 div.required > label:nth-child(1) {
@@ -905,3 +905,96 @@ div.required > label:nth-child(1) {
 .btnsDelete button:nth-child(2):hover {
   background: rgb(255, 151, 151);
 }
+body {
+  transition: color 0.5s ease-in-out, background 0.5s ease-in-out;
+}
+body.light {
+  background-color: rgb(248, 248, 251);
+  color: rgb(12, 14, 22);
+}
+.lightre {
+  background-color: white;
+  border: 1px solid white;
+}
+
+.lightre .createdAt {
+  color: rgb(136, 142, 176);
+}
+
+.lightre .clienName {
+  color: rgb(136, 142, 176);
+}
+.wfilterStatus {
+  color: rgb(12, 14, 22);
+}
+
+/* Element | http://localhost:5173/ */
+
+.wdropMenu.dropMenu {
+  background: white;
+  box-shadow: rgba(72, 84, 159, 0.25) 0px 10px 20px;
+}
+
+/* Inline #1 | http://localhost:5173/ */
+
+.wdropMenu.dropMenu .box {
+  background: rgb(223, 227, 250);
+}
+.NewInvoiceAdd.whiteNewInvoiceAdd {
+  background: white;
+  color: rgb(126, 136, 195);
+}
+.whiteNewInvoiceAdd .mainForm label {
+  color: rgb(126, 136, 195);
+}
+
+.whiteNewInvoiceAdd input {
+  background: white;
+}
+
+.wmainForm input {
+  border: 1px solid rgb(223, 227, 250);
+  color: rgb(12, 14, 22);
+}
+.wmainForm #drop {
+  background: white;
+  color: rgb(126, 136, 195);
+  border: 1px solid rgb(223, 227, 250);
+}
+
+.wmainForm #date {
+  color: rgb(126, 136, 195);
+}
+.wmainForm .addNewItem {
+  background: rgb(249, 250, 254);
+  color: rgb(126, 136, 195);
+}
+
+.wmainForm .addNewItem:hover {
+  background: rgb(223, 227, 250);
+}
+.wviewInvoice .artFie {
+  background: white;
+  color: rgb(12, 14, 22);
+}
+.wviewInvoice .textNext {
+  color: rgb(136, 142, 176);
+}
+
+.wviewInvoice .articleFooter {
+  background: white;
+}
+
+.wviewInvoice .summaryl {
+  background: rgb(55, 59, 83);
+  color: white;
+}
+
+.wviewInvoice .leftSer > label:nth-child(1) {
+  
+  color: black;
+  }
+
+  .deleteWrapper.wdeleteWrapper > section:nth-child(1) {
+    background: white;
+    }
