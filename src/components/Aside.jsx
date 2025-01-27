@@ -16,14 +16,14 @@ export default function Aside() {
         <div className="logoWrapper">
           <img className="logos" src={"/images/logo.svg"} alt="logo image" />
         </div>
-        <button onClick={() => setDark(!dark)}>
-          {dark ? (
-            <img src={"/images/icon-sun.svg"} alt="" />
-          ) : (
-            <img src={"/images/icon-moon.svg"} alt="" />
-          )}
-        </button>
       </div>
+      <button onClick={() => setDark(!dark)}>
+        {dark ? (
+          <img src={"/images/icon-sun.svg"} alt="" />
+        ) : (
+          <img src={"/images/icon-moon.svg"} alt="" />
+        )}
+      </button>
       <button className="mine">
         <img src={"/images/Rash.png"} alt="" />
       </button>
